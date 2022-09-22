@@ -16,6 +16,8 @@ def create(item):
     checklist.append(item)
 
 def read(index):
+    # added print line to display indexed item to user
+    print(checklist[index])
     return checklist[index]
 
 def update(index, item):
@@ -39,7 +41,7 @@ def select(function_code):
     elif function_code == "r":
         item_index = user_input("Index Number?: ")
         # remember that item_index must actually exist or our program will crash.
-        read(item_index)
+        read(int(item_index))
 
     elif function_code == "p":
         list_all_items()
