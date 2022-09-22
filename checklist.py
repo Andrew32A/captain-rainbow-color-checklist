@@ -1,8 +1,6 @@
-from random import randint
-
-# colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-# clothes = ["hat", "sunglasses", "shirt", "pants", "underwear", "socks", "shoes"]
-# days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+# There are seven colors in the rainbow, and seven items of clothing to color.
+# He can never wear the same color on any of his items. If he is wearing a purple shoe, he cannot wear a second purple shoe.
+# He must wear every color of the rainbow each day.
 
 checklist = list()
 
@@ -44,6 +42,14 @@ def test():
 
 test()
 
+
+
+
+# random stuff
+
+# colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+# clothes = ["hat", "sunglasses", "shirt", "pants", "underwear", "socks", "shoes"]
+# days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
 
 # for i in range(len(days)):
