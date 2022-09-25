@@ -4,35 +4,43 @@
 
 # create list
 checklist = list()
+# could also do checklist = []
 
-# define Functions
+# define functions
+# lists all items
 def list_all_items():
     index = 0
     for list_item in checklist:
         print("{} {}".format(index, list_item))
         index += 1
 
+# creates item in list
 def create(item):
     checklist.append(item)
 
+# reads item in list
 def read(index):
     # added print line to display indexed item to user
     print(checklist[index])
     return checklist[index]
 
+# updates item in list
 def update(index, item):
     checklist[index] = item
 
+# deletes item from list
 def destroy(index):
     checklist.pop(index)
 
 # stretch challenge for later
 # def mark_completed(index):
-    
+
+# takes user input   
 def user_input(prompt):
     user_input = input(prompt).lower()
     return user_input
 
+# selection based on user input
 def select(function_code):
     if function_code == "c":
         input_item = user_input("Input item: ")
@@ -40,7 +48,8 @@ def select(function_code):
 
     elif function_code == "r":
         item_index = user_input("Index Number?: ")
-        # remember that item_index must actually exist or our program will crash.
+        # remember that item_index must actually exist or our program will crash
+        # had to add int due to "TypeError: list indices must be integers or slices, not str"
         read(int(item_index))
 
     elif function_code == "p":
