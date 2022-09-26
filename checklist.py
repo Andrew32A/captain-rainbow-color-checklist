@@ -6,7 +6,15 @@
 checklist = list()
 # could also do checklist = []
 
-print("Welcome to Captain Rainbow's Color Checklist!\nPress h for help\n")
+# colors
+OKBLUE = '\033[94m'
+OKCYAN = '\033[96m'
+OKGREEN = '\033[92m'
+WARNING = '\033[93m'
+ENDC = '\033[0m'
+
+# welcone message
+print(f"{OKCYAN}---- Welcome to Captain Rainbow's Color Checklist! ----\n-- Press h for help --\n{ENDC}")
 
 # define functions
 # lists all items
@@ -46,11 +54,11 @@ def user_input(prompt):
 # selection based on user input
 def select(function_code):
     if function_code == "c":
-        input_item = user_input("Input item: ")
+        input_item = user_input(f"{OKGREEN}Input item: {ENDC}")
         create(input_item)
 
     elif function_code == "r":
-        item_index = user_input("Index Number?: ")
+        item_index = user_input(f"{OKGREEN}Index Number?: {ENDC}")
         # remember that item_index must actually exist or our program will crash
         # had to add int due to "TypeError: list indices must be integers or slices, not str" - same goes for the following functions that require an index number
         read(int(item_index))
@@ -59,26 +67,27 @@ def select(function_code):
         list_all_items()
 
     elif function_code == "u":
-        update_item = user_input("Index number?: ")
-        replace_item_with = user_input("Enter in new item: ")
+        update_item = user_input(f"{OKGREEN}Index number?: {ENDC}")
+        replace_item_with = user_input(f"{OKGREEN}Enter in new item: {ENDC}")
         update(int(update_item), replace_item_with)
 
     elif function_code == "d":
-        destroy_item = user_input("Index Number?: ")
+        destroy_item = user_input(f"{OKGREEN}Index Number?: {ENDC}")
         destroy(int(destroy_item))
 
     elif function_code == "z":
-        check_item = user_input("Index number?: ")
+        check_item = user_input(f"{OKGREEN}Index number?: {ENDC}")
         mark_completed(int(check_item))
 
     elif function_code == "h":
-        print("\n---- Enter one of the following ----\nC to add to list\nU to replace item from list\nD to delete item from list\nZ to mark complete\nR to Read from list\nP to display list\nQ to quit\n")
+        print(f"{OKCYAN}\n---- Enter one of the following ----\nC to add to list\nU to replace item from list\nD to delete item from list\nZ to mark complete\nR to Read from list\nP to display list\nQ to quit\n{ENDC}")
 
     elif function_code == "q":
+        print(f"{OKCYAN}\n\n---- Thanks for using Captain Rainbow's Color Checklist! ----\n\n{ENDC}")
         return False
 
     else:
-        print("Unknown Option")
+        print(f"{WARNING}Unknown Option{ENDC}")
 
     # keeps loop running
     return True
@@ -86,7 +95,7 @@ def select(function_code):
 # main loop
 running = True
 while running:
-    selection = user_input("\nEnter here: ")
+    selection = user_input(f"\n{OKBLUE}Enter here: {ENDC}")
     running = select(selection)
 
 
