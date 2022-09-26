@@ -6,6 +6,8 @@
 checklist = list()
 # could also do checklist = []
 
+print("Welcome to Captain Rainbow's Color Checklist!\nPress h for help\n")
+
 # define functions
 # lists all items
 def list_all_items():
@@ -32,8 +34,9 @@ def update(index, item):
 def destroy(index):
     checklist.pop(index)
 
-# stretch challenge for later
-# def mark_completed(index):
+# adds checkmark to item
+def mark_completed(index):
+    checklist[index] = ("{} {}".format("√", checklist[index]))
 
 # takes user input   
 def user_input(prompt):
@@ -49,11 +52,27 @@ def select(function_code):
     elif function_code == "r":
         item_index = user_input("Index Number?: ")
         # remember that item_index must actually exist or our program will crash
-        # had to add int due to "TypeError: list indices must be integers or slices, not str"
+        # had to add int due to "TypeError: list indices must be integers or slices, not str" - same goes for the following functions that require an index number
         read(int(item_index))
 
     elif function_code == "p":
         list_all_items()
+
+    elif function_code == "u":
+        update_item = user_input("Index number?: ")
+        replace_item_with = user_input("Enter in new item: ")
+        update(int(update_item), replace_item_with)
+
+    elif function_code == "d":
+        destroy_item = user_input("Index Number?: ")
+        destroy(int(destroy_item))
+
+    elif function_code == "z":
+        check_item = user_input("Index number?: ")
+        mark_completed(int(check_item))
+
+    elif function_code == "h":
+        print("\n---- Enter one of the following ----\nC to add to list\nU to replace item from list\nD to delete item from list\nZ to mark complete\nR to Read from list\nP to display list\nQ to quit\n")
 
     elif function_code == "q":
         return False
@@ -67,7 +86,7 @@ def select(function_code):
 # main loop
 running = True
 while running:
-    selection = user_input("Press C to add to list, R to Read from list, P to display list, and Q to quit: ")
+    selection = user_input("\nEnter here: ")
     running = select(selection)
 
 
